@@ -414,7 +414,6 @@ static struct ctl_table kern_table[] = {
 		.mode		= 0644,
 		.proc_handler	= proc_dointvec_minmax,
 		.extra1		= &one
-		.extra1		= &one,
 	},
 	{
 		.procname	= "sched_shares_window_ns",

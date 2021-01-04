@@ -160,6 +160,7 @@ static void __init zone_sizes_init(unsigned long min, unsigned long max)
 		if (cma_size && end > cma_base_pfn) {
 			unsigned long movable_end = min(end, max);
 			unsigned long movable_start = max(start, cma_base_pfn);
+
 			zhole_size[ZONE_MOVABLE] -= movable_end - movable_start;
 		}
 #else
@@ -180,11 +181,6 @@ static void __init zone_sizes_init(unsigned long min, unsigned long max)
 int pfn_valid(unsigned long pfn)
 {
 	return (pfn & PFN_MASK) == pfn && memblock_is_map_memory(pfn << PAGE_SHIFT);
-	phys_addr_t addr = pfn << PAGE_SHIFT;
-
-	if ((addr >> PAGE_SHIFT) != pfn)
-		return 0;
-	return memblock_is_memory(addr);
 }
 EXPORT_SYMBOL(pfn_valid);
 #endif
