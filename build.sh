@@ -5,7 +5,7 @@
 
 # Color
 green='\033[0;32m'
-echo -e "$green"
+echo -e "$yellow"
 
 # Main Environment
 KERNEL_DIR=$PWD
