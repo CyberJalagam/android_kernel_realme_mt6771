@@ -47,7 +47,7 @@ export KBUILD_BUILD_HOST=rbinternational
 function compile() {
 
     echo -e "${CYAN}"
-    make -j$(nproc) O=out ARCH=arm64 oppo6771_17065_defconfig
+    make -j$(nproc) O=out ARCH=arm64 oppo6771_18611_defconfig
     make -j$(nproc) O=out \
                     ARCH=arm64 \
                     CC=clang \
