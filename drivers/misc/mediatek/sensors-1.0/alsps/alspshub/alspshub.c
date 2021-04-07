@@ -704,19 +704,6 @@ static int alshub_factory_set_cali(int32_t offset)
 static int alshub_factory_get_cali(int32_t *offset)
 {
 	struct alspshub_ipi_data *obj = obj_ipi_data;
-#ifdef VENDOR_EDIT
-/*zhq@PSW.BSP.Sensor, 2018/10/28, Add for als ps cail*/
-    get_sensor_parameter(ID_LIGHT ,&obj->als_factor);
-
-	spin_lock(&calibration_lock);
-	data[0] = obj->als_factor;
-	data[1] = 0;
-	data[2] = 0;
-	data[3] = 0;
-	data[4] = 0;
-	data[5] = 0;
-	spin_unlock(&calibration_lock);
-#endif
 
 	*offset = atomic_read(&obj->als_cali);
 	return 0;

@@ -411,6 +411,11 @@ static int m4u_fill_sgtable_user(struct vm_area_struct *vma, unsigned long va, i
 	struct scatterlist *sg = *pSg;
 	struct page *pages;
 
+	unsigned int flags = 0;
+
+        if (vma->vm_flags & VM_WRITE)
+                flags |= FOLL_WRITE;
+
 	va_align = round_down(va, PAGE_SIZE);
 
 	for (i = 0; i < page_num; i++) {
